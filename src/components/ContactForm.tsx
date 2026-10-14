@@ -1,42 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-
-const boothPackages = [
-  { value: "Digital Photo Booth", label: "Digital Photo Booth" },
-  { value: "Pro Photo Booth", label: "Pro Photo Booth" },
-  { value: "Not sure — help me choose", label: "Not sure — help me choose" },
-];
-
-const eventTypes = [
-  "Wedding",
-  "Corporate Event",
-  "Mitzvah",
-  "Quince / Sweet 16",
-  "Holiday Party",
-  "School Event",
-  "Private Celebration",
-  "Birthday",
-  "Graduation",
-  "Other",
-];
-
-const hourOptions = ["2", "3", "4", "5", "6", "7", "8", "9", "10+"];
-
-const timeOptions = (() => {
-  const times: { label: string; value: string }[] = [];
-  for (let hour = 8; hour <= 23; hour++) {
-    for (const minute of [0, 30]) {
-      if (hour === 23 && minute === 30) break;
-      const hour12 = hour % 12 || 12;
-      const period = hour < 12 ? "AM" : "PM";
-      const label = `${hour12}:${minute.toString().padStart(2, "0")} ${period}`;
-      const value = `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
-      times.push({ label, value });
-    }
-  }
-  return times;
-})();
+import { boothPackages, eventTypes, hourOptions, timeOptions } from "@/lib/inquiry";
 
 const inputClassName = "luxury-input";
 const selectClassName = "luxury-select";
@@ -53,6 +18,7 @@ function boothFromUrl(): string {
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [boothPackage, setBoothPackage] = useState("");
 
   useEffect(() => {
@@ -62,12 +28,35 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
 
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+
+      if (!response.ok) {
+        setError(
+          payload?.error ||
+            "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or call (773) 639-8099.",
+        );
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(
+        "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or call (773) 639-8099.",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -99,6 +88,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="firstName" className={labelClassName}>
@@ -348,6 +342,12 @@ export default function ContactForm() {
           placeholder="Special requests, booth preferences, or anything else we should know..."
         />
       </div>
+
+      {error ? (
+        <p className="text-sm text-red-700" role="alert">
+          {error}
+        </p>
+      ) : null}
 
       <button
         type="submit"
