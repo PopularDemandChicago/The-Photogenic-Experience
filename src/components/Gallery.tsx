@@ -14,14 +14,116 @@ type GalleryItem = {
   poster?: string;
 };
 
-const galleryImages: GalleryItem[] = [
+const weddingGallery: GalleryItem[] = [
   {
-    id: "wedding-1",
+    id: "wedding-booth",
     src: "/images/gallery/wedding-booth.png",
-    alt: "Wedding guests having fun in the photo booth",
+    alt: "Wedding guests celebrating in the open-air photo booth",
     category: "Weddings",
     fit: "contain",
   },
+  {
+    id: "wedding-torres-bridal-party",
+    src: "/images/gallery/weddings/torres-wedding-strip-bridal-party.jpg",
+    alt: "Torres Wedding — bridal party photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-party",
+    src: "/images/gallery/weddings/torres-wedding-strip-wedding-party.jpg",
+    alt: "Torres Wedding — wedding party photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-couple",
+    src: "/images/gallery/weddings/torres-wedding-strip-couple-celebration.jpg",
+    alt: "Torres Wedding — couple celebration photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-groomsmen",
+    src: "/images/gallery/weddings/torres-wedding-strip-groomsmen.jpg",
+    alt: "Torres Wedding — groomsmen photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-host",
+    src: "/images/gallery/weddings/torres-wedding-strip-host-bw.jpg",
+    alt: "Torres Wedding — reception host photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-couple-friends",
+    src: "/images/gallery/weddings/torres-wedding-strip-couple-friends.jpg",
+    alt: "Torres Wedding — couple and friends photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-torres-bridesmaids",
+    src: "/images/gallery/weddings/torres-wedding-strip-bridesmaids.jpg",
+    alt: "Torres Wedding — bridesmaids photo booth strip",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-guests-congrats",
+    src: "/images/gallery/weddings/wedding-guests-congrats-props.jpg",
+    alt: "Wedding guests with celebration props at the photo booth",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-guests-fun",
+    src: "/images/gallery/weddings/wedding-guests-photo-booth-fun.jpg",
+    alt: "Wedding guests posing at the photo booth",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-guests-celebration",
+    src: "/images/gallery/weddings/wedding-guests-celebration-props.jpg",
+    alt: "Wedding guests with custom props at the booth",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-guests-bride-tribe",
+    src: "/images/gallery/weddings/wedding-guests-bride-tribe-props.jpg",
+    alt: "Bride and friends with photo booth props",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-reception-group",
+    src: "/images/gallery/weddings/wedding-reception-group-bride.jpg",
+    alt: "Wedding reception group photo with the bride",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-anniversary-friends",
+    src: "/images/gallery/weddings/wedding-anniversary-collage-friends.jpg",
+    alt: "Anniversary celebration — friends photo booth collage",
+    category: "Weddings",
+    fit: "contain",
+  },
+  {
+    id: "wedding-anniversary-couple",
+    src: "/images/gallery/weddings/wedding-anniversary-collage-couple.jpg",
+    alt: "Anniversary celebration — couple photo booth collage",
+    category: "Weddings",
+    fit: "contain",
+  },
+];
+
+const galleryImages: GalleryItem[] = [
+  ...weddingGallery,
   {
     id: "corporate-1",
     src: "/videos/private-event.mp4",
@@ -33,43 +135,6 @@ const galleryImages: GalleryItem[] = [
   },
   {
     id: "private-1",
-    src: "/images/gallery/gala-private-event.png",
-    alt: "Beat the Streets Chicago Gala group photo",
-    category: "Private",
-    fit: "contain",
-  },
-  {
-    id: "wedding-2",
-    src: "/images/gallery/wedding-booth.png",
-    alt: "Wedding guests having fun in the photo booth",
-    category: "Weddings",
-    fit: "contain",
-  },
-  {
-    id: "corporate-2",
-    src: "/videos/private-event.mp4",
-    alt: "@properties holiday corporate photo booth",
-    category: "Corporate",
-    fit: "contain",
-    type: "video",
-    poster: "/images/gallery/corporate-holiday.jpg",
-  },
-  {
-    id: "private-2",
-    src: "/images/gallery/gala-private-event.png",
-    alt: "Beat the Streets Chicago Gala group photo",
-    category: "Private",
-    fit: "contain",
-  },
-  {
-    id: "wedding-3",
-    src: "/images/gallery/wedding-booth.png",
-    alt: "Wedding guests having fun in the photo booth",
-    category: "Weddings",
-    fit: "contain",
-  },
-  {
-    id: "private-3",
     src: "/images/gallery/gala-private-event.png",
     alt: "Beat the Streets Chicago Gala group photo",
     category: "Private",
