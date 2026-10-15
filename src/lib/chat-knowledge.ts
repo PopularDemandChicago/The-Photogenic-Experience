@@ -168,6 +168,13 @@ If asked about capabilities you don't have (live calendar access, exact real-tim
 
 Keep answers under about 120 words unless they ask for detail. End with one helpful next step when appropriate.`;
 
+export const OPTIONAL_ADDONS_REPLY =
+  "Optional add-ons include: Online Gallery, Additional Hour, Digital Experience, Signature Experience (great for dual-booth events), Guest Memory Album, Custom Backdrop, and Idle Time Coverage for breaks during your timeline. Corporate Enhancements and Lead Capture are available too. Share your event flow and we'll build a quote — no fixed prices in chat.";
+
+function asksAboutAddOns(text: string): boolean {
+  return /add[\s-]*ons?|addons|optional\s+add|what\s+(are\s+)?(some\s+)?(the\s+)?add/i.test(text);
+}
+
 type FaqRule = { match: RegExp; answer: string };
 
 const FAQ_RULES: FaqRule[] = [
@@ -201,9 +208,9 @@ const FAQ_RULES: FaqRule[] = [
       "For weddings, quinceañeras, galas, and anniversary celebrations, many clients choose our Signature Experience — DSLR quality, pro lighting, unlimited prints, premium backdrop and props, plus unlimited digital sharing. Digital is also available if you want a more social, GIF-forward vibe. Share your date and venue and we'll help you pick.",
   },
   {
-    match: /add-?on|optional|extra hour|additional hour|more hours|online gallery|memory album|guest album|custom backdrop|idle time|coverage during/i,
-    answer:
-      "Optional add-ons include: Online Gallery, Additional Hour, Digital Experience, Signature Experience (great for dual-booth events), Guest Memory Album, Custom Backdrop, and Idle Time Coverage for breaks during your timeline. Corporate Enhancements and Lead Capture are available too. Share your event flow and we'll build a quote — no fixed prices in chat.",
+    match:
+      /add[\s-]*ons?|addons|optional|extra hour|additional hour|more hours|online gallery|memory album|guest album|custom backdrop|idle time|coverage during/i,
+    answer: OPTIONAL_ADDONS_REPLY,
   },
   {
     match: /corporate enhancement|brand(ed)?|logo|welcome screen|event-specific graphic|match your brand|company branding/i,
@@ -261,6 +268,10 @@ export function faqFallback(userMessage: string): string {
   const trimmed = userMessage.trim();
   if (!trimmed) {
     return "Ask me about booth types, packages, travel, or setup — or tap a quick question above.";
+  }
+
+  if (asksAboutAddOns(trimmed)) {
+    return OPTIONAL_ADDONS_REPLY;
   }
 
   for (const rule of FAQ_RULES) {
