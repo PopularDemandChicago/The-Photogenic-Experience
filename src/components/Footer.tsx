@@ -9,6 +9,10 @@ const socialLinks = [
     label: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61594872892350",
   },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@thephotogenicexperience",
+  },
 ] as const;
 
 const footerLinks = [
