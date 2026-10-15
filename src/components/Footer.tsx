@@ -24,7 +24,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="section-dark border-t border-white/[0.06]">
+    <footer className="section-dark border-t border-white/[0.06] pb-28 sm:pb-16">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-20">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
@@ -76,27 +76,29 @@ export default function Footer() {
               </li>
               <li>Serving Chicago, IL &amp; surrounding areas</li>
             </ul>
+            <p className="luxury-label mb-3 mt-8">Follow us</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-light text-luxury-platinum/70 transition-colors hover:text-accent-light"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-xs text-luxury-chrome">
+        <div className="mt-16 border-t border-white/10 pt-8 pr-0 sm:pr-36">
+          <p className="text-center text-xs text-luxury-chrome md:text-left">
             &copy; {new Date().getFullYear()} The Photogenic Experience. All
             rights reserved.
           </p>
-          <div className="flex gap-6">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] font-medium uppercase tracking-[0.15em] text-luxury-chrome transition-colors hover:text-accent-light"
-              >
-                {social.label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
