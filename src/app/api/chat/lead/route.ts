@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { BUSINESS } from "@/lib/chat-knowledge";
 
 const FALLBACK_ERROR =
-  "We couldn't send that right now. Please call (773) 639-8099 or email hello@thephotogenicexperience.com.";
+  "We couldn't send that right now. Please email hello@thephotogenicexperience.com.";
 
 function field(body: Record<string, unknown>, key: string): string {
   const value = body[key];
@@ -98,7 +98,7 @@ export async function POST(request: Request) {
   if (bookingUrl) {
     guestLines.push(`Schedule a consultation: ${bookingUrl}`);
   }
-  guestLines.push("", `Questions? Call us at ${BUSINESS.phone} or reply to this email.`);
+  guestLines.push("", `Questions? Reply to this email or write to ${BUSINESS.email}.`);
 
   await fetch("https://api.resend.com/emails", {
     method: "POST",

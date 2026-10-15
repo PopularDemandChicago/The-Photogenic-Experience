@@ -1,11 +1,11 @@
 export const BUSINESS = {
   name: "The Photogenic Experience",
-  phone: "(773) 639-8099",
-  phoneTel: "+17736398099",
   email: "hello@thephotogenicexperience.com",
   site: "https://www.thephotogenicexperience.com",
   region: "Chicagoland and surrounding areas",
 } as const;
+
+export const CONTACT_SUPPORT_MESSAGE = `Email ${BUSINESS.email} or use the contact form on our site.`;
 
 export const QUICK_PROMPTS = [
   "Digital vs Signature Experience?",
@@ -156,13 +156,13 @@ Corporate Enhancements and Lead Capture are also available as specialized add-on
 Events: weddings, corporate (galas, launches, holiday parties), mitzvahs, quinces, birthdays, graduations, private celebrations.
 
 Policies and facts:
-- Pricing depends on date, hours, booth type, travel, and add-ons. Never invent dollar amounts. Offer a custom quote and point to the contact form or phone ${BUSINESS.phone}.
+- Pricing depends on date, hours, booth type, travel, and add-ons. Never invent dollar amounts. Offer a custom quote and point to the contact form or email ${BUSINESS.email}.
 - Travel: based in Chicagoland; we serve the metro area and can quote events farther out — ask for venue city.
 - Setup: team arrives early; typical setup is about 45–60 minutes before guest use. Breakdown after the booked window.
 - Open-air booths: yes — our Digital booth is open-air; Signature setup is designed for a polished luxury look at the venue with premium backdrop.
-- Hours: inquiries answered quickly; for urgent event-day needs, call ${BUSINESS.phone}.
+- Hours: inquiries answered quickly; for urgent needs, email ${BUSINESS.email}.
 
-When someone wants to book, get a quote, check availability, or talk to a human: encourage them to share name, email, phone, event type, date, and venue — or use the in-chat "Send to our team" option. Mention they can also call ${BUSINESS.phone} or email ${BUSINESS.email}.
+When someone wants to book, get a quote, check availability, or talk to a human: encourage them to share name, email, phone, event type, date, and venue — or use the in-chat "Send to our team" option. Direct them to email ${BUSINESS.email} for personal follow-up. Do not provide a phone number.
 
 If asked about capabilities you don't have (live calendar access, exact real-time availability): say our team confirms availability and sends a personalized quote within 24 hours after they submit details.
 
@@ -245,7 +245,7 @@ const FAQ_RULES: FaqRule[] = [
   {
     match: /price|pricing|cost|how much|rate/i,
     answer:
-      "Pricing depends on booth type, hours, date, travel, and add-ons like custom branding. I don't have your exact rate here — share your event date, venue, and hours and our team will send personalized pricing within 24 hours. You can also call us at (773) 639-8099.",
+      `Pricing depends on booth type, hours, date, travel, and add-ons like custom branding. I don't have your exact rate here — share your event date, venue, and hours and our team will send personalized pricing within 24 hours. You can also email ${BUSINESS.email}.`,
   },
   {
     match: /quote|book|availability|consult|june|wedding date/i,
@@ -260,7 +260,7 @@ const FAQ_RULES: FaqRule[] = [
   {
     match: /phone|call|human|talk to someone|email/i,
     answer:
-      "Reach us anytime at (773) 639-8099 or hello@thephotogenicexperience.com. This chat is here 24/7 for quick answers; our team follows up on quotes personally.",
+      `Reach us anytime at ${BUSINESS.email}. This chat is here 24/7 for quick answers; our team follows up on quotes personally.`,
   },
 ];
 
@@ -278,7 +278,7 @@ export function faqFallback(userMessage: string): string {
     if (rule.match.test(trimmed)) return rule.answer;
   }
 
-  return `Thanks for your question. For the most accurate answer about "${trimmed.slice(0, 60)}${trimmed.length > 60 ? "…" : ""}", our team can help personally — tap "Send to our team" below or call ${BUSINESS.phone}. You can also browse booth options at ${BUSINESS.site}/#booths.`;
+  return `Thanks for your question. For the most accurate answer about "${trimmed.slice(0, 60)}${trimmed.length > 60 ? "…" : ""}", our team can help personally — tap "Send to our team" below or email ${BUSINESS.email}. You can also browse booth options at ${BUSINESS.site}/#booths.`;
 }
 
 export function shouldSuggestLead(userMessage: string): boolean {

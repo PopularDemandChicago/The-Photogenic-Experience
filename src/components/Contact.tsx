@@ -62,24 +62,6 @@ export default function Contact() {
 
               <div>
 
-                <p className="luxury-label">Phone</p>
-
-                <a
-
-                  href="tel:+17736398099"
-
-                  className="text-lg font-light text-luxury-black transition-colors hover:text-neutral-600"
-
-                >
-
-                  (773) 639-8099
-
-                </a>
-
-              </div>
-
-              <div>
-
                 <p className="luxury-label">Service Area</p>
 
                 <p className="text-lg font-light text-luxury-black">

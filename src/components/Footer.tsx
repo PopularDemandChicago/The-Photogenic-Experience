@@ -69,11 +69,6 @@ export default function Footer() {
                   hello@thephotogenicexperience.com
                 </a>
               </li>
-              <li>
-                <a href="tel:+17736398099" className="transition-colors hover:text-white">
-                  (773) 639-8099
-                </a>
-              </li>
               <li>Serving Chicago, IL &amp; surrounding areas</li>
             </ul>
             <p className="luxury-label mb-3 mt-8">Follow us</p>

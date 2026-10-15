@@ -87,7 +87,7 @@ export default function ChatWidget() {
       const reply =
         data.reply ||
         data.error ||
-        "I'm having trouble responding right now. Please call (773) 639-8099 or use the form below to reach our team.";
+        "I'm having trouble responding right now. Email hello@thephotogenicexperience.com or use the form below to reach our team.";
 
       setMessages((prev) => [...prev, { id: newId(), role: "assistant", content: reply }]);
     } catch {
@@ -97,7 +97,7 @@ export default function ChatWidget() {
           id: newId(),
           role: "assistant",
           content:
-            "Connection issue — please try again or call (773) 639-8099. You can also send your details with the form below.",
+            "Connection issue — please try again or email hello@thephotogenicexperience.com. You can also send your details with the form below.",
         },
       ]);
     } finally {
@@ -149,7 +149,7 @@ export default function ChatWidget() {
         },
       ]);
     } catch {
-      setLeadError("Could not send. Please call (773) 639-8099.");
+      setLeadError("Could not send. Please email hello@thephotogenicexperience.com.");
     } finally {
       setLeadSending(false);
     }
@@ -318,8 +318,11 @@ export default function ChatWidget() {
               <Link href="/#contact" className="text-luxury-platinum/60 hover:text-white">
                 Full inquiry form
               </Link>
-              <a href={`tel:${BUSINESS.phoneTel}`} className="text-luxury-platinum/60 hover:text-white">
-                {BUSINESS.phone}
+              <a
+                href={`mailto:${BUSINESS.email}`}
+                className="text-luxury-platinum/60 hover:text-white"
+              >
+                {BUSINESS.email}
               </a>
             </div>
 

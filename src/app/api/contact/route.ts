@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { inquirySubject, inquiryText, isSpamTrap, parseInquiry } from "@/lib/inquiry";
 
 const FALLBACK_ERROR =
-  "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or call (773) 639-8099.";
+  "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or try again shortly.";
 
 export async function POST(request: Request) {
   let body: unknown;

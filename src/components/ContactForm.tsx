@@ -44,7 +44,7 @@ export default function ContactForm() {
       if (!response.ok) {
         setError(
           payload?.error ||
-            "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or call (773) 639-8099.",
+            "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or try again shortly.",
         );
         return;
       }
@@ -52,7 +52,7 @@ export default function ContactForm() {
       setSubmitted(true);
     } catch {
       setError(
-        "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or call (773) 639-8099.",
+        "We couldn't send your inquiry. Email hello@thephotogenicexperience.com or try again shortly.",
       );
     } finally {
       setLoading(false);
