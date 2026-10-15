@@ -146,7 +146,7 @@ export default function ContactForm() {
             name="phone"
             required
             className={inputClassName}
-            placeholder="(773) 639-8099"
+            placeholder="Your phone number"
           />
         </div>
       </div>
