@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site-url";
 export const SITE_NAME = "The Photogenic Experience";
 
 export const SITE_DESCRIPTION =
-  "Photo booths Chicago couples and brands trust — luxury photo booth rentals and wedding photo booth packages in Chicago and Chicagoland. Digital and pro booths with prints, GIFs, and instant sharing.";
+  "Premium photo booth rentals for weddings, parties, and corporate events in Chicago. Elegant setups, studio‑quality lighting, instant prints, custom overlays, and a fun, seamless experience your guests will love.";
 
 export const SOCIAL_PROFILES = [
   "https://www.instagram.com/thephotogenicexperience/",
@@ -12,7 +12,8 @@ export const SOCIAL_PROFILES = [
   "https://www.tiktok.com/@thephotogenicexperience",
 ] as const;
 
-const defaultTitle = `Luxury & Wedding Photo Booths Chicago | ${SITE_NAME}`;
+const defaultTitle =
+  "Chicago Photo Booth Rental | Luxury, Fun & Professional Event Experiences";
 
 export function buildSiteMetadata(): Metadata {
   const base = siteUrl();
