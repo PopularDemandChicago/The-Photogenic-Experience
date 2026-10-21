@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import ChatWidget from "@/components/ChatWidget";
+import JsonLd from "@/components/JsonLd";
+import { buildSiteMetadata, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,19 +17,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "The Photogenic Experience | Luxury Photo Booth | Chicagoland",
-  description:
-    "Modern digital photobooth experience for weddings, corporate events, and private celebrations throughout Chicagoland. Elevate your event with stunning photo booth experiences.",
-  keywords: [
-    "photo booth",
-    "Chicagoland",
-    "wedding photo booth",
-    "corporate events",
-    "luxury photo booth",
-    "selfie booth",
-  ],
-};
+export const metadata: Metadata = buildSiteMetadata();
 
 export default function RootLayout({
   children,
@@ -37,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
+        <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
         {children}
         <ChatWidget />
       </body>
