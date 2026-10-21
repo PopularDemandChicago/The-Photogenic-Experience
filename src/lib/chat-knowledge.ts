@@ -2,7 +2,7 @@ export const BUSINESS = {
   name: "The Photogenic Experience",
   email: "hello@thephotogenicexperience.com",
   site: "https://www.thephotogenicexperience.com",
-  region: "Chicagoland and surrounding areas",
+  region: "Chicago and Chicagoland",
 } as const;
 
 export const CONTACT_SUPPORT_MESSAGE = `Email ${BUSINESS.email} or use the contact form on our site.`;

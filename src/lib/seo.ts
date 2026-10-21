@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site-url";
 export const SITE_NAME = "The Photogenic Experience";
 
 export const SITE_DESCRIPTION =
-  "Luxury digital and pro photo booth rentals in Chicago and Chicagoland. Weddings, corporate events, mitzvahs, and private celebrations with prints, GIFs, and instant sharing.";
+  "Photo booths Chicago couples and brands trust — luxury photo booth rentals and wedding photo booth packages in Chicago and Chicagoland. Digital and pro booths with prints, GIFs, and instant sharing.";
 
 export const SOCIAL_PROFILES = [
   "https://www.instagram.com/thephotogenicexperience/",
@@ -12,7 +12,7 @@ export const SOCIAL_PROFILES = [
   "https://www.tiktok.com/@thephotogenicexperience",
 ] as const;
 
-const defaultTitle = `${SITE_NAME} | Wedding & Event Photo Booth | Chicago`;
+const defaultTitle = `Luxury & Wedding Photo Booths Chicago | ${SITE_NAME}`;
 
 export function buildSiteMetadata(): Metadata {
   const base = siteUrl();
@@ -26,14 +26,15 @@ export function buildSiteMetadata(): Metadata {
     },
     description: SITE_DESCRIPTION,
     keywords: [
-      "photo booth rental Chicago",
-      "Chicagoland photo booth",
+      "photo booths Chicago",
       "wedding photo booth Chicago",
-      "corporate photo booth",
-      "luxury photo booth",
-      "digital photo booth",
-      "open air photo booth",
-      "event photo booth Illinois",
+      "luxury photo booth Chicago",
+      "photo booth rental Chicago",
+      "Chicago wedding photo booth",
+      "luxury photo booth rental",
+      "Chicagoland photo booth",
+      "corporate photo booth Chicago",
+      "digital photo booth Chicago",
     ],
     alternates: {
       canonical: "/",
@@ -60,7 +61,7 @@ export function buildSiteMetadata(): Metadata {
           url: ogImage,
           width: 1200,
           height: 1500,
-          alt: "Wedding guests enjoying The Photogenic Experience photo booth",
+          alt: "Wedding photo booth Chicago — guests at The Photogenic Experience luxury photo booth",
         },
       ],
     },
@@ -93,9 +94,10 @@ export function localBusinessJsonLd(): Record<string, unknown> {
     priceRange: "$$",
     sameAs: [...SOCIAL_PROFILES],
     knowsAbout: [
-      "Photo booth rental",
-      "Wedding entertainment",
-      "Corporate event activations",
+      "Photo booths Chicago",
+      "Wedding photo booth Chicago",
+      "Luxury photo booth Chicago",
+      "Corporate event photo booth",
       "Digital photo booth",
       "Pro photo booth with prints",
     ],

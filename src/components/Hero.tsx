@@ -21,14 +21,14 @@ export default function Hero() {
                 Photo Booth Experiences
               </span>
               <span className="mt-2 block text-xl font-light text-luxury-platinum/80 md:text-2xl lg:text-3xl">
-                in Chicagoland
+                in Chicago &amp; Chicagoland
               </span>
             </h1>
 
             <p className="body-copy mb-10 max-w-lg animate-slide-up text-left text-base opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] md:text-lg">
-              Make your next event unforgettable with our premium digital selfie
-              booth rentals — perfect for weddings, corporate events, and private
-              celebrations.
+              Luxury photo booth rentals and wedding photo booth packages for
+              Chicago events — digital and pro booths for weddings, corporate
+              celebrations, and private parties.
             </p>
 
             <div className="flex animate-slide-up flex-col gap-4 opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] sm:flex-row">
