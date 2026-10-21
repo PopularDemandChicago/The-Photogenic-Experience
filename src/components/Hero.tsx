@@ -15,14 +15,9 @@ export default function Hero() {
               Snap. Strike a Pose. Shine.
             </p>
 
-            <h1 className="luxury-heading mb-6 animate-slide-up text-left opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards] lg:text-5xl xl:text-6xl">
-              <span className="block">Modern &amp; Fun</span>
-              <span className="silver-gradient-text block italic">
-                Photo Booth Experiences
-              </span>
-              <span className="mt-2 block text-xl font-light text-luxury-platinum/80 md:text-2xl lg:text-3xl">
-                in Chicago &amp; Chicagoland
-              </span>
+            <h1 className="luxury-heading mb-6 animate-slide-up text-left opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards] lg:text-4xl xl:text-5xl">
+              Chicago’s Trusted Photo Booth Experience for Weddings, Parties
+              &amp; Corporate Events
             </h1>
 
             <p className="body-copy mb-10 max-w-lg animate-slide-up text-left text-base opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] md:text-lg">
