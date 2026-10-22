@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "#booths", label: "Booths" },
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#booths", label: "Booths" },
+  { href: "/#services", label: "Services" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -69,7 +69,7 @@ export default function Navbar() {
         </ul>
 
         <Link
-          href="#contact"
+          href="/#contact"
           className={`hidden rounded-sm px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 md:inline-flex ${
             scrolled
               ? "bg-accent text-white hover:bg-accent-dark"
@@ -123,7 +123,7 @@ export default function Navbar() {
             </li>
           ))}
           <li className="mt-4">
-            <Link href="#contact" className="btn-primary" onClick={() => setIsOpen(false)}>
+            <Link href="/#contact" className="btn-primary" onClick={() => setIsOpen(false)}>
               Check Availability
             </Link>
           </li>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LazyAutoplayVideo from "./LazyAutoplayVideo";
 
 const services = [
   {
@@ -7,8 +8,9 @@ const services = [
     title: "Weddings",
     subtitle: "Your Day, Perfectly Captured",
     description:
-      "Our sleek photo booth adds elegance to any venue — a surefire way to capture memorable moments and give your guests something they'll share all night long.",
+      "Elegant wedding photo booth backdrop options, custom overlays, and studio-quality captures — so your guests leave with strips they share all night.",
     image: "/images/gallery/wedding-booth.png",
+    imageAlt: "Wedding photo booth backdrop at a Chicago reception",
     mediaWidth: 1200,
     mediaHeight: 1500,
     mediaClass: "h-auto w-full",
@@ -24,7 +26,7 @@ const services = [
     title: "Corporate Events",
     subtitle: "Brand Your Experience",
     description:
-      "From galas to product launches, our booths engage guests, amplify your brand, and create share-worthy moments your team will talk about long after the event.",
+      "A full corporate event photo booth experience — branded overlays, lead capture, and polished service from galas and holiday parties to product launches.",
     video: "/videos/private-event.mp4",
     poster: "/images/gallery/corporate-holiday.jpg",
     mediaWidth: 360,
@@ -42,8 +44,9 @@ const services = [
     title: "Private Events",
     subtitle: "Celebrate in Style",
     description:
-      "Birthdays, mitzvahs, holiday parties, and milestone celebrations deserve something special. We bring the fun, the props, and the polished experience.",
+      "Birthdays, mitzvahs, and milestone celebrations deserve a party photo booth with instant prints — fun props, glam filters, and keepsakes guests take home.",
     image: "/images/gallery/gala-private-event.png",
+    imageAlt: "Party photo booth with instant prints at a Chicago celebration",
     mediaWidth: 1400,
     mediaHeight: 1050,
     mediaClass: "h-auto w-full",
@@ -69,8 +72,34 @@ export default function Services() {
             </span>
           </h2>
           <p className="body-copy mx-auto max-w-2xl">
-            No event around Chicago is complete without a premium photo booth
-            experience. We tailor every detail to match your vision.
+            No Chicago event is complete without a thoughtful photo booth rental
+            setup. See our{" "}
+            <Link
+              href="/wedding-photo-booth-chicago"
+              className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent"
+            >
+              wedding photo booth Chicago
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/corporate-photo-booth-chicago"
+              className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent"
+            >
+              corporate photo booth Chicago
+            </Link>{" "}
+            pages — or jump to{" "}
+            <Link href="/#weddings" className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent">
+              weddings
+            </Link>
+            ,{" "}
+            <Link href="/#corporate" className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent">
+              corporate
+            </Link>
+            , or{" "}
+            <Link href="/#private" className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent">
+              private events
+            </Link>{" "}
+            below.
           </p>
         </div>
 
@@ -104,7 +133,7 @@ export default function Services() {
                   }`}
                 >
                   {"video" in service && service.video ? (
-                    <video
+                    <LazyAutoplayVideo
                       src={service.video}
                       poster={service.poster}
                       width={service.mediaWidth}
@@ -113,14 +142,13 @@ export default function Services() {
                       muted
                       loop
                       playsInline
-                      preload="auto"
                       className={`block h-auto w-auto max-w-full transition-transform duration-700 group-hover:scale-[1.02] ${service.mediaClass}`}
-                      aria-label={`${service.title} photo booth highlight`}
+                      aria-label={`Corporate event photo booth experience — ${service.title} highlight`}
                     />
                   ) : (
                     <Image
                       src={service.image!}
-                      alt={service.title}
+                      alt={"imageAlt" in service && service.imageAlt ? service.imageAlt : service.title}
                       width={service.mediaWidth}
                       height={service.mediaHeight}
                       className={`block h-auto w-auto max-w-full transition-transform duration-700 group-hover:scale-[1.02] ${service.mediaClass}`}
@@ -155,9 +183,27 @@ export default function Services() {
                   ))}
                 </ul>
 
-                <Link href="#contact" className="btn-primary">
-                  Get a Quote
-                </Link>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href="#contact" className="btn-primary">
+                    Get a Quote
+                  </Link>
+                  {service.id === "weddings" && (
+                    <Link
+                      href="/wedding-photo-booth-chicago"
+                      className="text-sm font-light text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent"
+                    >
+                      Wedding photo booth Chicago →
+                    </Link>
+                  )}
+                  {service.id === "corporate" && (
+                    <Link
+                      href="/corporate-photo-booth-chicago"
+                      className="text-sm font-light text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent"
+                    >
+                      Corporate photo booth Chicago →
+                    </Link>
+                  )}
+                </div>
               </div>
             </article>
             );

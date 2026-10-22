@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const features = [
   {
     title: "Studio-Quality Photos",
@@ -12,7 +14,7 @@ const features = [
   {
     title: "Chic Backdrops",
     description:
-      "Designer-made backdrops included in every package — elegant options that stand out or blend seamlessly with your décor.",
+      "Designer wedding photo booth backdrop options in every package — elegant styles that stand out or blend seamlessly with your décor.",
     bullets: [
       "Modern & classic styles",
       "Custom branding available",
@@ -42,7 +44,7 @@ const features = [
   {
     title: "Instant Prints",
     description:
-      "Unlimited prints for you and your guests. Everyone goes home with a high-quality keepsake — no waiting, no limits.",
+      "A true party photo booth with instant prints — unlimited keepsakes for you and your guests, with no waiting and no limits.",
     bullets: [
       "2×6 strips or 4×6 portraits",
       "Custom overlay on every print",
@@ -72,8 +74,15 @@ export default function Experience() {
             <span className="silver-gradient-text block italic">Done That.</span>
           </h2>
           <p className="body-copy mx-auto max-w-2xl">
-            We strive to exceed your expectations — every single time. Here&apos;s
-            what comes standard with every Photogenic Experience booking.
+            Every Chicago photo booth rental setup is built for quality and guest
+            delight. Compare our{" "}
+            <Link
+              href="/#booths"
+              className="text-accent-dark underline decoration-accent-dark/30 underline-offset-4 hover:text-accent"
+            >
+              Digital and Pro booths
+            </Link>{" "}
+            — here&apos;s what comes standard with every Photogenic Experience booking.
           </p>
         </div>
 

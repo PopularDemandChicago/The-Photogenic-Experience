@@ -6,7 +6,7 @@ export default function AnnouncementBar() {
       <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white md:text-[11px]">
         Spots are filling up quickly —{" "}
         <Link
-          href="#contact"
+          href="/#contact"
           className="underline decoration-white/50 underline-offset-4 transition-colors hover:text-accent-light"
         >
           Check availability

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnnouncementBar from "./AnnouncementBar";
+import LazyAutoplayVideo from "./LazyAutoplayVideo";
 import Navbar from "./Navbar";
 
 export default function Hero() {
@@ -21,9 +22,26 @@ export default function Hero() {
             </h1>
 
             <p className="body-copy mb-10 max-w-lg animate-slide-up text-left text-base opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] md:text-lg">
-              Luxury photo booth rentals and wedding photo booth packages for
-              Chicago events — digital and pro booths for weddings, corporate
-              celebrations, and private parties.
+              Every Chicago photo booth rental setup includes studio-quality
+              lighting, custom overlays, and pro attendants — from wedding photo
+              booth backdrops to corporate activations and parties with instant
+              prints.
+            </p>
+
+            <p className="body-copy mb-8 max-w-lg animate-slide-up text-left text-sm opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards] md:text-base">
+              <Link
+                href="/wedding-photo-booth-chicago"
+                className="text-accent-light underline decoration-accent-light/40 underline-offset-4 hover:text-white"
+              >
+                Wedding photo booth Chicago
+              </Link>
+              {" · "}
+              <Link
+                href="/corporate-photo-booth-chicago"
+                className="text-accent-light underline decoration-accent-light/40 underline-offset-4 hover:text-white"
+              >
+                Corporate activations
+              </Link>
             </p>
 
             <div className="flex animate-slide-up flex-col gap-4 opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] sm:flex-row">
@@ -38,14 +56,15 @@ export default function Hero() {
 
           {/* Video — right (full-bleed, blends into hero) */}
           <div className="relative min-h-[55vh] overflow-hidden bg-luxury-black lg:min-h-full">
-            <video
-              src="/videos/hero-video.mp4?v=4"
+            <LazyAutoplayVideo
+              lazy={false}
+              src="/videos/hero-video.mp4?v=5"
               poster="/images/hero/gala-hero.png?v=4"
               autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
               className="absolute inset-0 h-full w-full object-cover object-[50%_18%]"
               aria-label="Photo booth experience highlight reel"
             />

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import LazyAutoplayVideo from "./LazyAutoplayVideo";
 
 type GalleryItem = {
   id: string;
@@ -18,7 +19,7 @@ const weddingGallery: GalleryItem[] = [
   {
     id: "wedding-booth",
     src: "/images/gallery/wedding-booth.png",
-    alt: "Wedding guests celebrating in the open-air photo booth",
+    alt: "Wedding photo booth backdrop — guests celebrating in the open-air booth",
     category: "Weddings",
     fit: "contain",
   },
@@ -159,14 +160,13 @@ function GallerySlide({
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-luxury-black/40 sm:aspect-[16/10]">
         {item.type === "video" ? (
-          <video
+          <LazyAutoplayVideo
             src={item.src}
             poster={item.poster}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
             className="absolute inset-0 h-full w-full object-contain"
           />
         ) : (

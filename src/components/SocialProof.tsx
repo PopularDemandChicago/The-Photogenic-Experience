@@ -15,9 +15,9 @@ export default function SocialProof() {
   return (
     <section className="overflow-hidden border-y border-black/[0.06] bg-white py-6">
       <div className="mb-4 text-center">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-accent-dark">
+        <h2 className="text-[10px] font-semibold uppercase tracking-[0.35em] text-accent-dark">
           Trusted Across Chicagoland
-        </p>
+        </h2>
       </div>
       <div className="relative flex overflow-hidden">
         <div className="animate-marquee flex shrink-0 gap-12 whitespace-nowrap">

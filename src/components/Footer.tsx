@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GOOGLE_MAPS_SEARCH_URL } from "@/lib/seo";
 
 const socialLinks = [
   {
@@ -16,10 +17,12 @@ const socialLinks = [
 ] as const;
 
 const footerLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/wedding-photo-booth-chicago", label: "Wedding Booths" },
+  { href: "/corporate-photo-booth-chicago", label: "Corporate Booths" },
 ];
 
 export default function Footer() {
@@ -37,8 +40,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm font-light leading-relaxed text-luxury-platinum/50">
-              Premium digital photo booth rentals for weddings, corporate events,
-              and private celebrations throughout Chicagoland.
+              Chicago photo booth rental setups for weddings, corporate event photo
+              booth experiences, and parties with instant prints — serving
+              Chicagoland.
             </p>
           </div>
 
@@ -70,6 +74,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>Serving Chicago, IL &amp; surrounding areas</li>
+              <li className="pt-2">
+                <a
+                  href={GOOGLE_MAPS_SEARCH_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  Find us on Google Maps
+                </a>
+              </li>
+              <li className="text-luxury-platinum/50">
+                Loved your event? A Google review helps Chicago couples and
+                planners discover us.
+              </li>
             </ul>
             <p className="luxury-label mb-3 mt-8">Follow us</p>
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
